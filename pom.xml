@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.teamA04.iso</groupId>
-  <artifactId>ISO2-2023-A04-Testing-P3</artifactId>
+  <artifactId>Testing-P3-ISO2-2023-A04</artifactId>
   <version>0.1.0</version>
 
-  <name>ISO2-2023-A04-Testing-P3</name>
+  <name>Testing-P3-ISO2-2023-A04</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.esi.uclm.es</url>
 
@@ -65,9 +65,29 @@
           <artifactId>maven-site-plugin</artifactId>
           <version>3.7.1</version>
         </plugin>
+        <!-- Code Coverage report generation -->
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+         <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.7</version> <!-- Use the latest version -->
+            <executions>
+                <execution>
+                    <id>prepare-agent</id>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
         </plugin>
       </plugins>
     </pluginManagement>
