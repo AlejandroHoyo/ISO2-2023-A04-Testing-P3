@@ -6,8 +6,10 @@ public class App {
 			double mass1 = Utils.readDouble("Enter the mass of the first body: ");
 			double mass2 = Utils.readDouble("Enter the mass of the second body: ");
 			double distance = Utils.readDouble("Enter the distance between the bodies: ");
+			
+			GravitationalForceCalculator gravitationalForce = new GravitationalForceCalculator(mass1, mass2, distance);
 
-			double force = GravitationalForceCalculator.calculateForce(mass1, mass2, distance);
+			double force = gravitationalForce.calculateForce();
 			System.out.println("The gravitational force between the bodies is " + force + " N.");
 
 		} catch (InvalidMassException e) {
