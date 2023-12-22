@@ -11,7 +11,6 @@ public class GravitationalForceCalculator {
 		this.mass2 = mass2;
 		this.distance = distance;
 	}
-
 	public double getMass1() {
 		return mass1;
 	}
@@ -23,20 +22,10 @@ public class GravitationalForceCalculator {
 	public double getDistance() {
 		return distance;
 	}
-
-	public double calculateForce()
-			throws InvalidMassException, InvalidDistanceException {
-
-		if (mass1 <= 0 )
-			throw new InvalidMassException("Mass 1 must be greater than 0.");
-		
-		if (mass2 <= 0)
-			throw new InvalidMassException("Mass 2 must be greater than 0.");
-		
-		if (distance <= 0) {
-			throw new InvalidDistanceException("Distance must be greater than 0.");
-		}
-
-		return Utils.GRAVITATIONAL_CONSTANT * (mass1 * mass2) / Math.pow(distance, 2);
+	public double calculateForce() throws NonPositiveDistanceOrMassException {
+		if (mass1 > 0 && mass2 > 0 && distance > 0) 
+			return Utils.GRAVITATIONAL_CONSTANT * (mass1 * mass2) / Math.pow(distance, 2);
+		else
+			throw new NonPositiveDistanceOrMassException("Value must be greater than 0.");
 	}
 }
